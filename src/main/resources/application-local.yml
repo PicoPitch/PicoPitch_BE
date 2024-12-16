@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:${LOCAL_DB_PORT}/picopitch?useSSL=false&useUnicode=true&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ${LOCAL_DB_USERNAME}
+    password: ${LOCAL_DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MariaDBDialect
+    show-sql: true
