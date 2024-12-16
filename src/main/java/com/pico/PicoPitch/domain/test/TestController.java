@@ -1,4 +1,4 @@
-package com.pico.PicoPitch.domain;
+package com.pico.PicoPitch.domain.test;
 
 import com.pico.PicoPitch.global.common.ApiResponse;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @GetMapping("/test")
-    public ResponseEntity<ApiResponse<String>> test(){
+    public ResponseEntity<ApiResponse<String>> test() {
         return ApiResponse.of(HttpStatus.OK, "it's test!");
     }
 
