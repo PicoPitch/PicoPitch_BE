@@ -1,5 +1,6 @@
 package com.pico.PicoPitch.global.common;
 
+import com.pico.PicoPitch.global.exception.ApiException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -23,6 +24,10 @@ public record ApiResponse<T>(
 
     public static <T> ResponseEntity<ApiResponse<T>> failedOf(HttpStatus status, String message) {
         return ResponseEntity.status(status).body(new ApiResponse<>(true, message, null));
+    }
+
+    public static <T> ResponseEntity<ApiResponse<T>> failedOf(ApiException e) {
+        return ResponseEntity.status(e.status).body(new ApiResponse<>(true, e.getMessage(), null));
     }
 
     public static <T> ResponseEntity<ApiResponse<T>> ok() {
